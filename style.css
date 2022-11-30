@@ -1,0 +1,199 @@
+@font-face {
+  font-family: Book Insanity;
+  src: url('./fonts/Bookinsanity.otf');
+}
+
+@font-face {
+  font-family: Chicago;
+  src: url('./fonts/ChicagoFLF.ttf');
+}
+
+html, body {
+	margin: 0;
+}
+
+body {
+	color: white;
+	position: relative;
+	height: 100vh;
+}
+
+h2 {
+	font-family: 'Book Insanity';
+	text-transform: uppercase;
+	margin: 0.2em 0;
+}
+
+p {
+	font-family: Chicago;
+}
+
+img {
+	width: 100%;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	display: inline-block;
+  	position: relative;
+  	z-index: 1;
+  	transition: .25s;
+}
+
+a:hover {
+	color: white;
+}
+
+a:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: .07em;
+  height: .1em;
+  width: 100%;
+  background: linear-gradient(110deg,#d71e39,#e1f549,#29d0be,#6cb8ea);
+  z-index: -1;
+  transition: height .25s cubic-bezier(.6,0,.4,1);
+}
+
+a:hover:after {
+  height: 1em;
+}
+
+button {
+	background: none;
+	border: 2px solid black;
+	border-radius: 15px;
+	padding: 7px 15px;
+	font-family: Chicago;
+	cursor: pointer;
+	transition: .25s cubic-bezier(.6,0,.4,1);
+}
+
+button:hover {
+	background:black;
+	color: white;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	/*background: url('./images/bg-marble.jpg');*/
+	background: black;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	padding: 50px;
+	box-sizing: border-box;
+}
+
+#earth-col {
+	width: 70%;
+	position: relative;
+}
+
+#logo {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.popup {
+	position: absolute;
+	background: white;
+	width: 800px;
+	height: 500px;
+	max-width: 100%;
+	margin: auto;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: black;
+    border: 3px solid black;
+    z-index: 999;
+}
+
+.popup-bar {
+	width: 100%;
+	outline: 3px solid black;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.popup-bar-line-wrapper {
+	padding: 5px 3px;
+}
+
+.popup-bar-line {
+	width: 100%;
+	height: 1px;
+	border-bottom: 2px solid black;
+	margin-bottom: 2px;
+	box-sizing: border-box;
+}
+
+#close-button {
+	width: 20px;
+	height: 20px;
+	background: white;
+	border: 2px solid black;
+	outline: 2px solid white;
+	position: absolute;
+	right: 20px;
+	top: 4px;
+	cursor:  pointer;
+}
+
+.popup-bar-line:last-of-type {
+	margin-bottom: 0;
+}
+
+.popup-contents {
+	padding: 20px;
+	text-align: center;
+}
+
+#popup-title {
+	font-size: 3em;
+	margin: 0.5em 0;
+}
+
+.popup-details-wrapper {
+	display: flex;
+	margin-top: 20px;
+}
+
+.popup-details-embed {
+	width: 65%;
+}
+
+.popup-details {
+	text-align: left;
+	padding: 0 20px;
+	font-family: 'Chicago', sans-serif;
+}
+
+.news-highlight {
+	color: red;
+}
+
+.open {
+	animation: grow .15s cubic-bezier(0.99, 0.04, 0.57, 1.31) forwards;
+}
+
+.close {
+	animation: shrink .15s cubic-bezier(0.99, 0.04, 0.57, 1.31) forwards;
+}
+
+@keyframes grow {
+	0% {transform: translate(-50%, -50%) scale(0)}
+	100% {transform: translate(-50%, -50%) scale(1)}
+}
+
+
+@keyframes shrink {
+	0% {transform: translate(-50%, -50%) scale(1)}
+	100% {transform: translate(-50%, -50%) scale(0)}
+}
+
