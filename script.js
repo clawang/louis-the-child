@@ -1,132 +1,30 @@
+import {songs, releaseTimes} from './variables.js';
+
 var myearth;
 var localNewsMarker;
 var markers = [];
-var songs = [
-	{
-		title: "INTRO",
-		location: "Los Angeles",
-		lat : 34.05,
-		lng : -118.24
-	},
-	{
-		title: "THE CITY IS MINE",
-		location: "Los Angeles",
-		lat : 34.05,
-		lng : -118.24
-	},
-	{
-		title: "GRITTY",
-		location: "Tokyo",
-		lat : 35.67,
-		lng : 139.65
-	},
-	{
-		title: "DRAGNET",
-		location: "Chicago",
-		lat : 41.88,
-		lng : -87.63
-	},
-	{
-		title: "SUPERSONIC",
-		location: "Paris",
-		lat : 48.86,
-		lng : 2.35
-	},
-	{
-		title: "HYPE",
-		location: "Tokyo",
-		lat : 35.67,
-		lng : 139.65
-	},
-	{
-		title: "OOH",
-		location: "London",
-		lat : 51.51,
-		lng : -0.13
-	},
-	{
-		title: "DORK",
-		location: "Vancouver",
-		lat : 49.29,
-		lng : -123.12
-	},
-	{
-		title: "WOLF TEETH",
-		location: "Miami",
-		lat : 25.76,
-		lng : -80.19
-	},
-	{
-		title: "MOOMBAHTON",
-		location: "Miami",
-		lat : 25.76,
-		lng : -80.19
-	},
-	{
-		title: "TECHNO JAM",
-		location: "Berlin",
-		lat : 52.52,
-		lng : 13.40
-	},
-	{
-		title: "AMSTERDAM",
-		location: "Amsterdam",
-		lat : 52.37,
-		lng : 4.9
-	},
-	{
-		title: "GET DOWN",
-		location: "New York",
-		lat : 40.71,
-		lng : -74
-	},
-	{
-		title: "DANCE TUNE",
-		location: "Los Angeles",
-		lat : 34.05,
-		lng : -118.24
-	},
-	{
-		title: "WERK THAT BEAT",
-		location: "Vancouver",
-		lat : 49.29,
-		lng : -123.12
-	},
-	{
-		title: "CRUSHED PIECES",
-		location: "Los Angeles",
-		lat : 34.05,
-		lng : -118.24
-	},
-	{
-		title: "LOWLIGHT",
-		location: "Los Angeles",
-		lat : 34.05,
-		lng : -118.24
-	}
-];
 
 window.addEventListener( "earthjsload", function() {
 
 	const close = document.getElementById('close-button');
 	close.addEventListener('click', closePopup);
 
-	const trackList = Array.from(document.getElementById('track-list').children);
-	console.log(trackList);
-	trackList.forEach((track, index) => {
-		track.addEventListener('click', () => goToSong(index));
-	});
+	// const trackList = Array.from(document.getElementById('track-list').children);
+	// trackList.forEach((track, index) => {
+	// 	track.addEventListener('click', () => goToSong(index));
+	// });
 
 	// for(let i = 0; i < 3; i++) {
 	// 	document.getElementById(`breaking-news-${i}-title`).addEventListener('click', () => highlightBreakingNews(i));
 	// }
 
 	myearth = new Earth(document.getElementById('element'), {
-		location : {lat: 18, lng: -50},
-		zoom: 1,
+		// location : {lat: 18, lng: -50},
+		location: {lat: 14.4267077, lng:143.93},
+		zoom: 0.4,
 		light: 'none',
 
-		transparent : true,
+		transparent: true,
 		mapImage: './images/marble-map-texture.png',
 		// mapSeaColor : 'RGBA(255,255,255,0.76)',
 		// mapLandColor : '#000000',
@@ -135,23 +33,40 @@ window.addEventListener( "earthjsload", function() {
 		mapHitTest : true,
 
 		autoRotate: true,
-		autoRotateSpeed: 0.7,
-		autoRotateDelay: 4000,
+		autoRotateSpeed: 10,
+		autoRotateDelay:4000,
+		autoRotateEasing: 'out-quad'
 	});
+
+	console.log(myearth.camera);
 
 	myearth.addEventListener( "ready", function() {
 
 		this.startAutoRotate();
 
-		songs.forEach((song, index) => {
-			markers[index] = myearth.addImage({
-		    	location: { lat : song.lat, lng : song.lng},
-		    	image: './images/marker.png',
-		    	hotspot: true,
-		    });
+		var stars = [];
+		
+		var star_count = 1000;
+		
+		for ( var i=0; i < star_count; i++ ) {
+		
+			stars.push({
+				location : { lat: getRandomInt(-60,60), lng: getRandomInt(-180,180) },
+				offset: getRandomInt(40,60),
+				scale: 2,
+				opacity: getRandomInt(20,80)/100,
+				color: 'rgb('+ getRandomInt(180,255) +','+ getRandomInt(180,255) +','+ getRandomInt(180,255) +')',
+			});
+		
+		}
+		
+		var mypoints = myearth.addPoints({
+			points: stars,
+			scale: 0.5 + window.innerWidth / 2000
+		});
 
-		    markers[index].addEventListener('click', (event) => openPopup(event, index));
-		})
+		//addMarkers();
+		addTimes();
 	});
 
 
@@ -167,9 +82,43 @@ window.addEventListener( "earthjsload", function() {
 	});
 });
 
+function addMarkers() {
+	songs.forEach((song, index) => {
+	// markers[index] = myearth.addImage({
+	 //    	location: { lat : song.lat, lng : song.lng},
+	 //    	image: './images/marker.png',
+	 //    	hotspot: true,
+	 //    });
+
+	    markers[index] = myearth.addOverlay({
+			location: { lat: song.lat, lng: song.lng },
+			content : '<img src="./images/crown.png">',
+			className : 'crown-overlay',
+			depthScale : 0.75,
+			offset: 0.5
+		});
+
+	    markers[index].element.querySelector('img').addEventListener('click', (event) => openPopup(event, index));
+	});
+}
+
+const times = [];
+
+function addTimes() {
+	releaseTimes.forEach((time, index) => {
+		times[index] = myearth.addOverlay({
+			location: time.location,
+			content : `<h4>${time.timezone}</h4><h3>${time.time}</h3><h4>${time.date}</h4>`,
+			className : 'time-overlay',
+			depthScale : 0.75,
+			offset: 0.5,
+			zoomScale: 0
+		});
+	});
+}
+
 
 function highlightBreakingNews(event, newsId) {
-	console.log('are you highlighting');
 	document.getElementById( 'breaking-news-'+ newsId ).classList.add( 'news-highlight' );
 	// setTimeout( function(){
 	// 	document.getElementById( 'breaking-news-'+ newsId ).classList.remove( 'news-highlight' );
@@ -196,10 +145,33 @@ function openPopup(event, index) {
 	title.textContent = songs[index].title;
 	const location = document.getElementById('location');
 	location.textContent = songs[index].location;
+
+	const dancerContainer = document.getElementById('dancers');
+	dancerContainer.innerHTML = "";
+
+	songs[index].dancers.forEach((dancer) => {
+		// Create anchor element.
+        var a = document.createElement('a'); 
+        var link = document.createTextNode(dancer.name);
+        a.appendChild(link); 
+        a.title = dancer.name; 
+        a.href = dancer.link; 
+          
+		const para = document.createElement("p");
+		para.appendChild(a);
+
+		dancerContainer.appendChild(para);
+	});
 }
 
 function closePopup(event) {
 	const popup = document.querySelector('.popup');
 	popup.classList.remove('open');
 	popup.classList.add('close');
+}
+
+function getRandomInt(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min)) + min;
 }

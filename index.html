@@ -5,12 +5,14 @@
   <link rel="stylesheet" href="./style.css">
   <script src="world-news/countries.js"></script>
   <script src="./miniature.earth.js"></script>
-  <script src="./script.js"></script>
+  <script type="module" src="./variables.js"></script>
+  <script type="module" src="./script.js"></script>
 </head>
 
 <body>
   <div id="logo">
-    <img src="./images/crown-inverted.png">
+    <img src="./images/crown.png" id="crown">
+    <img src="./images/title.png">
   </div>
   <div id="container">
     <div id="earth-col">
@@ -36,7 +38,10 @@
             </div>
             <div class="popup-details">
               <p>Location: <span id="location">Los Angeles, USA</span></p>
-              <p>Dancer: <span id="dancer"><a href="https://www.instagram.com/louisthechild/">Robby Hauldren</a></span></p>
+              <p>Dancers:</p>
+              <div id="dancers">
+                
+              </div>
               <button>Watch Now</button>
             </div>
           </div>
@@ -44,7 +49,7 @@
       </div>
       <div id="element" class="earth-js"></div>
     </div>
-    <div id="track-list">
+    <!-- <div id="track-list">
       <p>INTRO</p>
       <p>THE CITY IS MINE</p>
       <p>GRITTY</p>
@@ -62,6 +67,6 @@
       <p>WERK THAT BEAT</p>
       <p>CRUSHED PIECES</p>
       <p>LOWLIGHT</p>
-    </div>
+    </div> -->
   </div>
 </body>
