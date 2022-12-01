@@ -236,6 +236,10 @@ const songs = [
 				link: "https://www.instagram.com/kaio.d.atrocity"
 			}
 		]
+	},
+	{
+		lat: -33.86,
+		lng: 151.21
 	}
 ];
 
