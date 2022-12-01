@@ -44,29 +44,30 @@ window.addEventListener( "earthjsload", function() {
 
 		this.startAutoRotate();
 
-		var stars = [];
+		// var stars = [];
 		
-		var star_count = 1000;
+		// var star_count = 1000;
 		
-		for ( var i=0; i < star_count; i++ ) {
+		// for ( var i=0; i < star_count; i++ ) {
 		
-			stars.push({
-				location : { lat: getRandomInt(-60,60), lng: getRandomInt(-180,180) },
-				offset: getRandomInt(40,60),
-				scale: 2,
-				opacity: getRandomInt(20,80)/100,
-				color: 'rgb('+ getRandomInt(180,255) +','+ getRandomInt(180,255) +','+ getRandomInt(180,255) +')',
-			});
+		// 	stars.push({
+		// 		location : { lat: getRandomInt(-60,60), lng: getRandomInt(-180,180) },
+		// 		offset: getRandomInt(40,60),
+		// 		scale: 2,
+		// 		opacity: getRandomInt(20,80)/100,
+		// 		color: 'rgb('+ getRandomInt(180,255) +','+ getRandomInt(180,255) +','+ getRandomInt(180,255) +')',
+		// 	});
 		
-		}
+		// }
 		
-		var mypoints = myearth.addPoints({
-			points: stars,
-			scale: 0.5 + window.innerWidth / 2000
-		});
+		// var mypoints = myearth.addPoints({
+		// 	points: stars,
+		// 	scale: 0.5 + window.innerWidth / 2000
+		// });
 
 		//addMarkers();
-		addTimes();
+		//addTimes();
+		addHotSpots();
 	});
 
 
@@ -113,6 +114,16 @@ function addTimes() {
 			depthScale : 0.75,
 			offset: 0.5,
 			zoomScale: 0
+		});
+	});
+}
+
+function addHotSpots() {
+	songs.forEach((song, index) => {
+		markers[index] = myearth.addOverlay( {
+			location : { lat: song.lat, lng: song.lng },
+			depthScale : 0.4,
+			className : 'hotspot',
 		});
 	});
 }
