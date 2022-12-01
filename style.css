@@ -19,6 +19,7 @@ body {
 	background: url('./images/bg-marble.jpg');
 	background-size: cover;
 	box-sizing: border-box;
+	background-position: center center;
 }
 
 h2 {
@@ -218,11 +219,11 @@ button:hover {
 }
 
 #times-1 {
-	top: 220px;
+	top: 230px;
 }
 
 #times-2 {
-	top: 695px;
+	top: 710px;
 }
 
 .times .time-overlay {
@@ -248,7 +249,7 @@ button:hover {
 }
 
 .time-overlay h4 {
-	font-size: 1.5em;
+	font-size: 1.3em;
 	text-transform: uppercase;
 }
 
