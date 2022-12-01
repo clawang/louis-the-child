@@ -146,6 +146,23 @@ function openPopup(event, index) {
 	const location = document.getElementById('location');
 	location.textContent = songs[index].location;
 
+	const details = document.getElementById('credits');
+	details.innerHTML = "";
+	if (songs[index].credits) {
+		songs[index].credits.forEach(credit => {
+			var a = document.createElement('a'); 
+	        var link = document.createTextNode(credit.name);
+	        a.appendChild(link); 
+	        a.title = credit.name; 
+	        a.href = credit.link; 
+			const para = document.createElement("p");
+			const text = document.createTextNode(credit.title + ": ");
+			para.appendChild(text);
+			para.appendChild(a);
+			details.appendChild(para);
+		});
+	}
+
 	const blurb = document.getElementById('blurb');
 	blurb.textContent = songs[index].blurb;
 

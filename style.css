@@ -176,7 +176,7 @@ button:hover {
 }
 
 .popup-contents {
-	padding: 20px;
+	padding: 20px 20px 50px 20px;
 	text-align: center;
 	overflow-y: scroll;
 	height: 468px;
@@ -214,6 +214,11 @@ button:hover {
 	width: 600px;
 	margin: 0 auto;
 	padding-top: 20px;
+	display: flex;
+}
+
+.popup-details > div {
+	width: 50%;
 }
 
 .popup-details p {

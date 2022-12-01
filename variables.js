@@ -11,7 +11,7 @@ const songs = [
 			}
 		],
 		credits: [
-			{	title: "DP"
+			{	title: "DP",
 				name: "Russell Tandy",
 				link: "https://www.instagram.com/russelltandy_"
 			}
