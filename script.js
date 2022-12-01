@@ -9,10 +9,10 @@ window.addEventListener( "earthjsload", function() {
 	const close = document.getElementById('close-button');
 	close.addEventListener('click', closePopup);
 
-	// const trackList = Array.from(document.getElementById('track-list').children);
-	// trackList.forEach((track, index) => {
-	// 	track.addEventListener('click', () => goToSong(index));
-	// });
+	const trackList = Array.from(document.getElementById('track-list').children);
+	trackList.forEach((track, index) => {
+		track.addEventListener('click', () => goToSong(index));
+	});
 
 	// for(let i = 0; i < 3; i++) {
 	// 	document.getElementById(`breaking-news-${i}-title`).addEventListener('click', () => highlightBreakingNews(i));
@@ -21,7 +21,7 @@ window.addEventListener( "earthjsload", function() {
 	myearth = new Earth(document.getElementById('element'), {
 		// location : {lat: 18, lng: -50},
 		location: {lat: 14.4267077, lng:143.93},
-		zoom: 0.4,
+		zoom: 0.7,
 		light: 'none',
 
 		transparent: true,
@@ -33,7 +33,7 @@ window.addEventListener( "earthjsload", function() {
 		mapHitTest : true,
 
 		autoRotate: true,
-		autoRotateSpeed: 10,
+		autoRotateSpeed: 1,
 		autoRotateDelay:4000,
 		autoRotateEasing: 'out-quad'
 	});
@@ -65,8 +65,8 @@ window.addEventListener( "earthjsload", function() {
 			scale: 0.5 + window.innerWidth / 2000
 		});
 
-		//addMarkers();
-		addTimes();
+		addMarkers();
+		//addTimes();
 	});
 
 
@@ -92,7 +92,7 @@ function addMarkers() {
 
 	    markers[index] = myearth.addOverlay({
 			location: { lat: song.lat, lng: song.lng },
-			content : '<img src="./images/crown.png">',
+			content : '<img src="./images/crown-red.png">',
 			className : 'crown-overlay',
 			depthScale : 0.75,
 			offset: 0.5
@@ -145,6 +145,9 @@ function openPopup(event, index) {
 	title.textContent = songs[index].title;
 	const location = document.getElementById('location');
 	location.textContent = songs[index].location;
+
+	const blurb = document.getElementById('blurb');
+	blurb.textContent = songs[index].blurb;
 
 	const dancerContainer = document.getElementById('dancers');
 	dancerContainer.innerHTML = "";

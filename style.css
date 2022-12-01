@@ -86,6 +86,7 @@ button:hover {
 	align-items: center;
 	padding: 50px;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 #earth-col {
@@ -98,13 +99,24 @@ button:hover {
 	height: 100%;
 }
 
+#track-list {
+	position: absolute;
+	bottom: 50px;
+	right: 50px;
+	z-index: 1001;
+}
+
+#track-list p {
+	margin: 0;
+	cursor: pointer;
+}
+
 #logo {
 	position: absolute;
 	top: 50px;
-	left: 50%;
+	left: 50px;
 	width: 200px;
 	text-align: center;
-	transform: translate(-50%, 0);
 }
 
 #crown {
@@ -119,11 +131,12 @@ button:hover {
 	max-width: 100%;
 	margin: auto;
 	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    color: black;
-    border: 3px solid black;
-    z-index: 999;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: black;
+  border: 3px solid black;
+  z-index: 999;
+  overflow: hidden;
 }
 
 .popup-bar {
@@ -131,6 +144,7 @@ button:hover {
 	outline: 3px solid black;
 	box-sizing: border-box;
 	position: relative;
+	height: 32px;
 }
 
 .popup-bar-line-wrapper {
@@ -164,6 +178,9 @@ button:hover {
 .popup-contents {
 	padding: 20px;
 	text-align: center;
+	overflow-y: scroll;
+	height: 468px;
+	box-sizing: border-box;
 }
 
 #popup-title {
@@ -172,18 +189,44 @@ button:hover {
 }
 
 .popup-details-wrapper {
-	display: flex;
+	/*display: flex;*/
 	margin-top: 20px;
 }
 
 .popup-details-embed {
-	width: 65%;
+	width: 100%;
+}
+
+.popup-blurb-container {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.popup-blurb-container p {
+	text-align: left;
+	font-family: 'Book Insanity', serif;
+	font-size: 1.2em;
 }
 
 .popup-details {
 	text-align: left;
-	padding: 0 20px;
 	font-family: 'Chicago', sans-serif;
+	width: 600px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+.popup-details p {
+	font-size: 1em;
+	margin: 0.2em 0;
+}
+
+#dancers {
+	padding-left: 20px;
+}
+
+#dancers p {
+	margin: 0;
 }
 
 .news-highlight {
@@ -191,7 +234,7 @@ button:hover {
 }
 
 .crown-overlay img {
-	width: 30px;
+	width: 40px;
 	pointer-events: all;
 	cursor: pointer;
 	transform: translate(-50%, -50%);
