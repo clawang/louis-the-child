@@ -90,15 +90,15 @@ function addMarkers() {
 	 //    	hotspot: true,
 	 //    });
 
-	    markers[index] = myearth.addOverlay({
-			location: { lat: song.lat, lng: song.lng },
-			content : '<img src="./images/crown-red.png">',
-			className : 'crown-overlay',
-			depthScale : 0.75,
-			offset: 0.5
-		});
+    markers[index] = myearth.addOverlay({
+		location: { lat: song.lat, lng: song.lng },
+		content : '<img src="./images/crown-red.png">',
+		className : 'crown-overlay',
+		depthScale : 0.75,
+		offset: 0.5
+	});
 
-	    markers[index].element.querySelector('img').addEventListener('click', (event) => openPopup(event, index));
+    markers[index].element.querySelector('img').addEventListener('click', (event) => openPopup(event, index));
 	});
 }
 
@@ -129,11 +129,12 @@ function highlightBreakingNews(event, newsId) {
 }
 
 function goToSong(id) {
-	myearth.goTo({lat: songs[id].lat, lng: songs[id].lng}, { duration: 250, relativeDuration: 70 } );
+	const animation = myearth.goTo({lat: songs[id].lat, lng: songs[id].lng}, { duration: 250, relativeDuration: 70 } );
+	markers[id].element.classList.add('pulsing');
 }
 
 function openPopup(event, index) {
-	console.log('opening popup');
+	markers[index].element.classList.remove('pulsing');
 
 	//opens popup
 	const popup = document.querySelector('.popup');
@@ -169,19 +170,25 @@ function openPopup(event, index) {
 	const dancerContainer = document.getElementById('dancers');
 	dancerContainer.innerHTML = "";
 
-	songs[index].dancers.forEach((dancer) => {
-		// Create anchor element.
-        var a = document.createElement('a'); 
-        var link = document.createTextNode(dancer.name);
-        a.appendChild(link); 
-        a.title = dancer.name; 
-        a.href = dancer.link; 
-          
-		const para = document.createElement("p");
-		para.appendChild(a);
+	if(songs[index].dancers) {
+		const title = document.createElement("p");
+		title.appendChild(document.createTextNode("Dancers:"));
+		dancerContainer.appendChild(title);
 
-		dancerContainer.appendChild(para);
-	});
+		songs[index].dancers.forEach((dancer) => {
+			// Create anchor element.
+	        var a = document.createElement('a'); 
+	        var link = document.createTextNode(dancer.name);
+	        a.appendChild(link); 
+	        a.title = dancer.name; 
+	        a.href = dancer.link; 
+	          
+			const para = document.createElement("p");
+			para.appendChild(a);
+
+			dancerContainer.appendChild(para);
+		});
+	}
 }
 
 function closePopup(event) {
