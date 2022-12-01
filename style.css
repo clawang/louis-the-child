@@ -230,12 +230,29 @@ button:hover {
 	margin: 0.2em 0;
 }
 
+.popup-details-left {
+	width:  60%;
+}
+
+.popup-pairs {
+	display: flex;
+}
+
+.popup-details-field {
+	margin-right: 10px;
+	width: 90px;
+}
+
 #dancers {
-	padding-left: 20px;
+	
 }
 
 #dancers p {
 	margin: 0;
+}
+
+#dancers a {
+	margin-left: 20px;
 }
 
 .news-highlight {

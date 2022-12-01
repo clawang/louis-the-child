@@ -147,8 +147,10 @@ function openPopup(event, index) {
 	const location = document.getElementById('location');
 	location.textContent = songs[index].location;
 
-	const details = document.getElementById('credits');
-	details.innerHTML = "";
+	const creditsFields = document.getElementById('credits-fields');
+	const creditsValues = document.getElementById('credits-values');
+	creditsFields.innerHTML = "";
+	creditsValues.innerHTML = "";
 	if (songs[index].credits) {
 		songs[index].credits.forEach(credit => {
 			var a = document.createElement('a'); 
@@ -156,11 +158,13 @@ function openPopup(event, index) {
 	        a.appendChild(link); 
 	        a.title = credit.name; 
 	        a.href = credit.link; 
-			const para = document.createElement("p");
+			const field = document.createElement("p");
 			const text = document.createTextNode(credit.title + ": ");
-			para.appendChild(text);
-			para.appendChild(a);
-			details.appendChild(para);
+			const value = document.createElement("p");
+			field.appendChild(text);
+			value.appendChild(a);
+			creditsFields.appendChild(field);
+			creditsValues.appendChild(value);
 		});
 	}
 
