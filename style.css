@@ -231,11 +231,12 @@ button:hover {
 }
 
 .popup-details-left {
-	width:  60%;
+	width: 60%;
 }
 
-.popup-pairs {
+.popup-details-line {
 	display: flex;
+	align-items: flex-end;
 }
 
 .popup-details-field {
@@ -243,16 +244,12 @@ button:hover {
 	width: 90px;
 }
 
-#dancers {
-	
+#dancers .popup-details-line {
+	align-items: flex-start;
 }
 
 #dancers p {
 	margin: 0;
-}
-
-#dancers a {
-	margin-left: 20px;
 }
 
 .news-highlight {

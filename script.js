@@ -134,7 +134,10 @@ function goToSong(id) {
 }
 
 function openPopup(event, index) {
-	markers[index].element.classList.remove('pulsing');
+	markers.forEach(marker => {
+		marker.element.classList.remove('pulsing');
+	})
+	document.querySelector(".popup-contents").scrollTop = 0;
 
 	//opens popup
 	const popup = document.querySelector('.popup');
@@ -147,10 +150,8 @@ function openPopup(event, index) {
 	const location = document.getElementById('location');
 	location.textContent = songs[index].location;
 
-	const creditsFields = document.getElementById('credits-fields');
-	const creditsValues = document.getElementById('credits-values');
-	creditsFields.innerHTML = "";
-	creditsValues.innerHTML = "";
+	const credits = document.getElementById('credits');
+	credits.innerHTML = "";
 	if (songs[index].credits) {
 		songs[index].credits.forEach(credit => {
 			var a = document.createElement('a'); 
@@ -163,13 +164,19 @@ function openPopup(event, index) {
 			const value = document.createElement("p");
 			field.appendChild(text);
 			value.appendChild(a);
-			creditsFields.appendChild(field);
-			creditsValues.appendChild(value);
+			const div = document.createElement("div");
+			div.classList.add("popup-details-line");
+			const fieldDiv = document.createElement("div");
+			fieldDiv.classList.add("popup-details-field");
+			const valueDiv = document.createElement("div");
+			valueDiv.classList.add("popup-details-value");
+			fieldDiv.appendChild(field);
+			valueDiv.appendChild(value);
+			div.appendChild(fieldDiv);
+			div.appendChild(valueDiv);
+			credits.appendChild(div);
 		});
 	}
-
-	const blurb = document.getElementById('blurb');
-	blurb.textContent = songs[index].blurb;
 
 	const dancerContainer = document.getElementById('dancers');
 	dancerContainer.innerHTML = "";
@@ -177,7 +184,14 @@ function openPopup(event, index) {
 	if(songs[index].dancers) {
 		const title = document.createElement("p");
 		title.appendChild(document.createTextNode("Dancers:"));
-		dancerContainer.appendChild(title);
+		const div = document.createElement("div");
+		div.classList.add("popup-details-line");
+		const fieldDiv = document.createElement("div");
+		fieldDiv.classList.add("popup-details-field");
+		fieldDiv.appendChild(title);
+
+		const valueDiv = document.createElement("div");
+		valueDiv.classList.add("popup-details-value");
 
 		songs[index].dancers.forEach((dancer) => {
 			// Create anchor element.
@@ -190,9 +204,16 @@ function openPopup(event, index) {
 			const para = document.createElement("p");
 			para.appendChild(a);
 
-			dancerContainer.appendChild(para);
+			valueDiv.appendChild(para);
 		});
+
+		div.appendChild(fieldDiv);
+		div.appendChild(valueDiv);
+		dancerContainer.appendChild(div);
 	}
+
+	const blurb = document.getElementById('blurb');
+	blurb.textContent = songs[index].blurb;
 }
 
 function closePopup(event) {

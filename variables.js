@@ -40,8 +40,8 @@ const songs = [
 	{
 		title: "GRITTY",
 		location: "Tokyo",
-		lat : 35.67,
-		lng : 139.65,
+		lat : 36.67,
+		lng : 140.65,
 		dancers: [
 			{
 				name: "Nao",
@@ -101,8 +101,8 @@ const songs = [
 	{
 		title: "HYPE",
 		location: "Tokyo",
-		lat : 35.67,
-		lng : 139.65,
+		lat : 34.67,
+		lng : 138.65,
 		dancers: [
 			{
 				name: "Nao",
@@ -139,8 +139,8 @@ const songs = [
 	{
 		title: "DORK",
 		location: "Vancouver",
-		lat : 49.29,
-		lng : -123.12,
+		lat : 51.29,
+		lng : -121.12,
 		dancers: [
 			{
 				name: "Tyler Olson",
@@ -166,8 +166,8 @@ const songs = [
 	{
 		title: "WOLF TEETH",
 		location: "Miami",
-		lat : 25.76,
-		lng : -80.19,
+		lat : 26.76,
+		lng : -79.19,
 		dancers: [
 			{
 				name: "Marisa Fernandez",
@@ -186,8 +186,8 @@ const songs = [
 	{
 		title: "MOOMBAHTON",
 		location: "Miami",
-		lat : 25.76,
-		lng : -80.19,
+		lat : 24.76,
+		lng : -81.19,
 		dancers: [
 			{
 				name: "Kerine Jean-Pierre",
@@ -299,8 +299,8 @@ const songs = [
 	{
 		title: "WERK THAT BEAT",
 		location: "Vancouver",
-		lat : 49.29,
-		lng : -123.12,
+		lat : 48.29,
+		lng : -124.12,
 		dancers: [
 			{
 				name: "Astrid Eckerle",
