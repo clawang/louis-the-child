@@ -209,7 +209,7 @@ button:hover {
 }
 
 .times {
-	width: 400px;
+	width: 500px;
 	position: absolute;
 	display: flex;
 	left: 50%;
@@ -229,7 +229,8 @@ button:hover {
 .times .time-overlay {
 	transform: none;
 	padding: 0 10px;
-}
+/*	width: 120px;
+*/}
 
 .times .time-overlay h3 {
 	font-size: 1.5em;
