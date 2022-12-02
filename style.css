@@ -109,6 +109,7 @@ button a:after {
 #earth-col {
 	width: 100%;
 	position: relative;
+	height: 100%;
 }
 
 #element {
@@ -258,6 +259,11 @@ button a:after {
 	font-size: 1.2em;
 }
 
+#blurb img {
+	width: 20px;
+	display: inline-block;
+}
+
 .popup-details {
 	text-align: left;
 	font-family: 'Chicago', sans-serif;
@@ -378,12 +384,15 @@ button a:after {
 	100% {transform: translate(-50%, -50%) scale(0)}
 }
 
+@media only screen and (min-width: 1500px) {
+	.crown-overlay img {
+		width: 50px;
+	}
+}
+
 @media only screen and (max-width: 1200px) {
 	.popup {
 		width: 800px;
-	}
-	.crown-overlay img {
-		width: 50px;
 	}
 }
 
@@ -430,9 +439,10 @@ button a:after {
 
 @media only screen and (max-width: 600px) {
 	#container {
-		padding: 50px 10px;
+		padding: 0;
 	}
-	#full-film {
-		bottom: 80px;
+	#track-list {
+		bottom: 10%;
+		width: 100%;
 	}
 }

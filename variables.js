@@ -85,7 +85,7 @@ const songs = [
 		],
 		link: "https://youtu.be/_U0lWJaECbk",
 		embed: "https://open.spotify.com/embed/track/2ApyAeHNpit8O8TNaWK3pa?utm_source=generator&theme=0",
-		blurb: "One of our favorite moments of the whole film! Really epic horn moment + the reveal of Chicago in the film = 🫠"
+		blurb: "One of our favorite moments of the whole film! Really epic horn moment + the reveal of Chicago in the film = <img src='./images/melting-face.png'>"
 	},
 	{
 		title: "SUPERSONIC",

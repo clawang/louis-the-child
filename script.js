@@ -25,7 +25,8 @@ window.addEventListener( "earthjsload", function() {
 	myearth = new Earth(document.getElementById('element'), {
 		// location : {lat: 18, lng: -50},
 		location: {lat: 14.4267077, lng:143.93},
-		zoom: zoom,
+		zoom: zoom.zoom,
+		zoomMax: zoom.zoomMax,
 		zoomable: true,
 		light: 'none',
 
@@ -84,7 +85,8 @@ window.addEventListener( "earthjsload", function() {
 
 window.addEventListener("resize", function() {
 	var zoom = calculateZoom();
-	myearth.zoom = zoom;
+	myearth.zoom = zoom.zoom;
+	myearth.zoomMax = zoom.zoomMax;
 	myearth.redrawMap();
 
 	const body = document.querySelector('body');
@@ -93,18 +95,19 @@ window.addEventListener("resize", function() {
 
 function calculateZoom() {
 	var zoom;
+	var zoomMax = 1.25;
 
 	if(window.innerWidth > 1200) {
-		zoom = 0.6;
-	} else if(window.innerWidth > 800) {
-		zoom = 0.7
-	} else if(window.innerWith > 600) {
-		zoom = 0.8;
-	} else {
 		zoom = 1;
+	} else if(window.innerWidth > 800) {
+		zoom = 0.8
+	} else if(window.innerWith > 600) {
+		zoom = 0.9;
+	} else {
+		zoom = 0.6;
 	}
 
-	return zoom;
+	return {zoom, zoomMax};
 }
 
 function addMarkers() {
@@ -244,7 +247,7 @@ function openPopup(event, index) {
 	}
 
 	const blurb = document.getElementById('blurb');
-	blurb.textContent = songs[index].blurb;
+	blurb.innerHTML = songs[index].blurb;
 
 	const iframe = document.getElementById('iframe');
 	iframe.setAttribute("src", songs[index].embed);
