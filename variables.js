@@ -211,7 +211,7 @@ const songs = [
 		blurb: "This song really reminds us of some of our favorite Moombahton tracks from throughout the years. Munchi especially"
 	},
 	{
-		title: "MOOMBAHTON",
+		title: "MOOMBAHTRON",
 		location: "Miami",
 		lat : 24.76,
 		lng : -81.19,
