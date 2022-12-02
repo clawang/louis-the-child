@@ -404,7 +404,7 @@ button a:after {
 
 @media only screen and (max-width: 1000px) {
 	.popup {
-		width: 100%;
+		width: calc(100% - 30px);
 	}
 	#track-list {
 		right: 50px;
