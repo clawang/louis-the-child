@@ -142,22 +142,29 @@ button a:after {
 	z-index: 1001;
 }
 
-#track-list button {
+#full-film button {
 	border-color: white;
 	color: white;
 	margin-top: 10px;
 }
 
-#track-list button:hover {
+#full-film button:hover {
 	background: white;
 }
 
-#track-list button:hover a {
+#full-film button:hover a {
 	color: black;
 }
 
-#track-list button a {
+#full-film button a {
 	color: white;
+}
+
+#full-film {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	width: 180px;
 }
 
 #crown {
@@ -245,6 +252,9 @@ button a:after {
 
 .popup-details-embed {
 	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
+	box-sizing: border-box;
 }
 
 .popup-blurb-container {
@@ -310,7 +320,7 @@ button a:after {
 }
 
 .crown-overlay img {
-	width: 40px;
+	width: 30px;
 	pointer-events: all;
 	cursor: pointer;
 	transform: translate(-50%, -50%);
@@ -441,7 +451,7 @@ button a:after {
 	#container {
 		padding: 0;
 	}
-	#track-list {
+	#full-film {
 		bottom: 10%;
 		width: 100%;
 	}

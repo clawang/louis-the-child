@@ -91,6 +91,11 @@ window.addEventListener("resize", function() {
 
 	const body = document.querySelector('body');
 	body.height = window.innerHeight;
+
+	const video = document.getElementById('video-embed');
+	const popupWidth = document.querySelector('.popup-details-embed').clientWidth;
+	video.width = popupWidth;
+	video.height = popupWidth * 315/560;
 });
 
 function calculateZoom() {
@@ -112,12 +117,6 @@ function calculateZoom() {
 
 function addMarkers() {
 	songs.forEach((song, index) => {
-		// markers[index] = myearth.addImage({
-		 //    	location: { lat : song.lat, lng : song.lng},
-		 //    	image: './images/marker.png',
-		 //    	hotspot: true,
-		 //    });
-
 	    markers[index] = myearth.addOverlay({
 			location: { lat: song.lat, lng: song.lng },
 			content : '<img src="./images/crown-red.png">',
@@ -184,9 +183,10 @@ function openPopup(event, index) {
 	const location = document.getElementById('location');
 	location.textContent = songs[index].location;
 	const video = document.getElementById('video-embed');
-	const popupWidth = document.querySelector('.popup-details-wrapper').clientWidth;
+	const popupWidth = document.querySelector('.popup-details-embed').clientWidth;
 	video.width = popupWidth;
 	video.height = popupWidth * 315/560;
+	video.setAttribute("src", songs[index].video);
 
 	const credits = document.getElementById('credits');
 	credits.innerHTML = "";
