@@ -314,7 +314,7 @@ const songs = [
 	{
 		title: "ECHOLOCATION",
 		location: "Los Angeles",
-		lat : 34.05,
+		lat : 33.05,
 		lng : -116.24,
 		dancers: [
 			{
@@ -340,9 +340,9 @@ const songs = [
 	},
 	{
 		title: "WERK THAT BEAT",
-		location: "Vancouver",
-		lat : 48.29,
-		lng : -124.12,
+		location: "Los Angeles",
+		lat : 35.05,
+		lng : -116.24,
 		dancers: [
 			{
 				name: "Ingel Catindig",
