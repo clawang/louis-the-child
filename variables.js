@@ -1,8 +1,8 @@
 const songs = [
 	{
-		title: "INTRO",
+		title: "BLACK MARBLE INTRO",
 		location: "Los Angeles",
-		lat : 34.05,
+		lat : 31.05,
 		lng : -118.24,
 		dancers: [
 			{
@@ -22,7 +22,7 @@ const songs = [
 	{
 		title: "THE CITY IS MINE",
 		location: "Los Angeles",
-		lat : 34.05,
+		lat : 36.05,
 		lng : -118.24,
 		dancers: [
 			{
@@ -214,7 +214,7 @@ const songs = [
 		blurb: "A lot of you might recognize this song from hearing it on the Euphoria Tour (it had the Gasolina vocal on it but sadly couldn’t clear that sample for the tape). Moombahton had a big influence on us when we were first starting out and is still a genre we love to play out in Playground Sets. This song feels like an homage to the old Dillon Francis, Munchi, and Porter Robinson. The name is obviously a play off the word moombahton."
 	},
 	{
-		title: "TECHNO JAM",
+		title: "ERROR303",
 		location: "Berlin",
 		lat : 52.52,
 		lng : 13.40,
@@ -250,7 +250,7 @@ const songs = [
 		blurb: "When we first started Black Marble this was actually the intro song. We later changed it because this song felt like it took you somewhere else that the other songs didn’t, and we wanted to save that moment for later in the project. That’s part of the reason why we chose to have this song animated in the film. It’s a drastic change that feels like it breathes new life into the tape in the second half."
 	},
 	{
-		title: "GET DOWN",
+		title: "GET DOWN!",
 		location: "New York",
 		lat : 40.71,
 		lng : -74,
@@ -286,10 +286,10 @@ const songs = [
 		blurb: "This song just felt like New York. Pretty early on we had the image of a group of dancers in New York dancing to this song and it turned out so cool in the movie. We sampled “When The Last Time” by Clipse for the “get down” part and ZHU sings the “I know you wanna get down” vocal."
 	},
 	{
-		title: "DANCE TUNE",
+		title: "ECHOLOCATION",
 		location: "Los Angeles",
 		lat : 34.05,
-		lng : -118.24,
+		lng : -116.24,
 		dancers: [
 			{
 				name: "Trinity Penn",
@@ -342,7 +342,7 @@ const songs = [
 		title: "CRUSHED PIECES",
 		location: "Los Angeles",
 		lat : 34.05,
-		lng : -118.24,
+		lng : -120.24,
 		dancers: [
 			{
 				name: "Jaime Reid",
@@ -360,10 +360,10 @@ const songs = [
 		blurb: "We started this one on a plane ride home from Europe and it’s the fastest song (tempo wise) on the whole project. We love the juxtaposition of this song that’s really heavy and angry with the beauty of a ballet dancer in the film. Juxtaposition is everything."
 	},
 	{
-		title: "LOWLIGHT",
+		title: "L O W L I G H T",
 		location: "Los Angeles",
-		lat : 34.05,
-		lng : -118.24,
+		lat : 33.05,
+		lng : -119.24,
 		dancers: [
 			{
 				name: "Kevin Davis"
