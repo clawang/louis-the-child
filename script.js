@@ -26,6 +26,7 @@ window.addEventListener( "earthjsload", function() {
 		// location : {lat: 18, lng: -50},
 		location: {lat: 14.4267077, lng:143.93},
 		zoom: zoom,
+		zoomable: true,
 		light: 'none',
 
 		transparent: true,

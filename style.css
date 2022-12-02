@@ -136,6 +136,7 @@ button a:after {
 	left: 50px;
 	width: 200px;
 	text-align: center;
+	z-index: 1001;
 }
 
 #track-list button {
