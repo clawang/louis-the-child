@@ -85,6 +85,9 @@ window.addEventListener("resize", function() {
 	var zoom = calculateZoom();
 	myearth.zoom = zoom;
 	myearth.redrawMap();
+
+	const body = document.querySelector('body');
+	body.height = window.innerHeight;
 });
 
 function calculateZoom() {

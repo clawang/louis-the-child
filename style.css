@@ -8,6 +8,10 @@
   src: url('./fonts/ChicagoFLF.ttf');
 }
 
+html {
+	height: 100%;
+}
+
 html, body {
 	margin: 0;
 }
@@ -16,6 +20,7 @@ body {
 	color: white;
 	position: relative;
 	height: 100vh;
+	max-height: -webkit-fill-available;
 	background: url('./images/bg-marble.jpg');
 	/*background: black;*/
 	background-size: cover;
