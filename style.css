@@ -416,4 +416,7 @@ button a:after {
 	#container {
 		padding: 50px 10px;
 	}
+	#logo {
+		bottom: 80px;
+	}
 }
