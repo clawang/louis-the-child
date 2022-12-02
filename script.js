@@ -183,6 +183,10 @@ function openPopup(event, index) {
 	title.textContent = songs[index].title;
 	const location = document.getElementById('location');
 	location.textContent = songs[index].location;
+	const video = document.getElementById('video-embed');
+	const popupWidth = document.querySelector('.popup-details-wrapper').clientWidth;
+	video.width = popupWidth;
+	video.height = popupWidth * 315/560;
 
 	const credits = document.getElementById('credits');
 	credits.innerHTML = "";
