@@ -210,6 +210,14 @@ button a:after {
 	right: 20px;
 	top: 4px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#close-button img {
+	width: 14px;
+	margin: auto;
 }
 
 .popup-bar-line:last-of-type {
@@ -300,6 +308,11 @@ button a:after {
 	pointer-events: all;
 	cursor: pointer;
 	transform: translate(-50%, -50%);
+	transition: 0.25s;
+}
+
+.crown-overlay img:hover {
+	transform: translate(-50%, -50%) scale(1.1);
 }
 
 .time-overlay h3, .time-overlay h4 {
