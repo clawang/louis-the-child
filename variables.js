@@ -345,22 +345,14 @@ const songs = [
 		lng : -124.12,
 		dancers: [
 			{
-				name: "Astrid Eckerle",
-				link: "https://www.instagram.com/astrideckerle"
+				name: "Ingel Catindig",
+				link: "https://www.instagram.com/ingelwood"
 			}
 		],
 		credits: [
-			{	title: "DP/Dir",
-				name: "Jacob Crawford",
-				link: "https://www.instagram.com/jacobcrawfordfilm"
-			},
-			{	title: "B Camera Operator",
-				name: "Bryce MacGregor",
-				link: "https://www.instagram.com/brycemacgregor"
-			},
-			{	title: "Producer",
-				name: "Bailey Wood",
-				link: "https://www.instagram.com/baileywood____"
+			{	title: "DP",
+				name: "Johny D",
+				link: "https://www.instagram.com/johnydchoreography"
 			}
 		],
 		link: "https://youtu.be/OcN_6d75ub8",
