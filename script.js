@@ -20,7 +20,7 @@ window.addEventListener( "earthjsload", function() {
 	// 	document.getElementById(`breaking-news-${i}-title`).addEventListener('click', () => highlightBreakingNews(i));
 	// }
 
-	var zoom = window.innerWidth < 800 ? 1 : 0.7;
+	var zoom = calculateZoom();
 
 	myearth = new Earth(document.getElementById('element'), {
 		// location : {lat: 18, lng: -50},
@@ -82,10 +82,26 @@ window.addEventListener( "earthjsload", function() {
 });
 
 window.addEventListener("resize", function() {
-	var zoom = window.innerWidth < 800 ? 1 : 0.7;
+	var zoom = calculateZoom();
 	myearth.zoom = zoom;
 	myearth.redrawMap();
 });
+
+function calculateZoom() {
+	var zoom;
+
+	if(window.innerWidth > 1200) {
+		zoom = 0.6;
+	} else if(window.innerWidth > 800) {
+		zoom = 0.7
+	} else if(window.innerWith > 600) {
+		zoom = 0.8;
+	} else {
+		zoom = 1;
+	}
+
+	return zoom;
+}
 
 function addMarkers() {
 	songs.forEach((song, index) => {
