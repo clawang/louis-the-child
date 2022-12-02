@@ -104,6 +104,7 @@ button a:after {
 	padding: 50px;
 	box-sizing: border-box;
 	overflow: hidden;
+	position: relative;
 }
 
 #earth-col {
@@ -163,7 +164,7 @@ button a:after {
 #full-film {
 	position: absolute;
 	top: 50px;
-	right: 50px;
+	right: 40px;
 	width: 180px;
 }
 
@@ -410,12 +411,14 @@ button a:after {
 	.tracks {
 		display: none;
 	}
-	#track-list {
+	#full-film {
 		left: 50%;
 		transform: translate(-50%, 0);
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: center;
+		bottom: 10%;
+		height: auto;
 	}
 	#logo {
 		left: 50%;
@@ -450,9 +453,5 @@ button a:after {
 @media only screen and (max-width: 600px) {
 	#container {
 		padding: 0;
-	}
-	#full-film {
-		bottom: 10%;
-		width: 100%;
 	}
 }
