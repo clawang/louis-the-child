@@ -9,8 +9,8 @@ window.addEventListener( "earthjsload", function() {
 	const close = document.getElementById('close-button');
 	close.addEventListener('click', closePopup);
 
-	if(document.getElementById('track-list')) {
-		const trackList = Array.from(document.getElementById('track-list').children);
+	if(document.querySelector('.tracks')) {
+		const trackList = Array.from(document.querySelector('.tracks').children);
 		trackList.forEach((track, index) => {
 			track.addEventListener('click', () => goToSong(index));
 		});
@@ -109,21 +109,22 @@ function calculateZoom() {
 
 function addMarkers() {
 	songs.forEach((song, index) => {
-	// markers[index] = myearth.addImage({
-	 //    	location: { lat : song.lat, lng : song.lng},
-	 //    	image: './images/marker.png',
-	 //    	hotspot: true,
-	 //    });
+		// markers[index] = myearth.addImage({
+		 //    	location: { lat : song.lat, lng : song.lng},
+		 //    	image: './images/marker.png',
+		 //    	hotspot: true,
+		 //    });
 
-    markers[index] = myearth.addOverlay({
-		location: { lat: song.lat, lng: song.lng },
-		content : '<img src="./images/crown-red.png">',
-		className : 'crown-overlay',
-		depthScale : 0.75,
-		offset: 0.5
-	});
+	    markers[index] = myearth.addOverlay({
+			location: { lat: song.lat, lng: song.lng },
+			content : '<img src="./images/crown-red.png">',
+			className : 'crown-overlay',
+			depthScale : 0.75,
+			offset: 0.5,
+			zoomScale: 0.5
+		});
 
-    markers[index].element.querySelector('img').addEventListener('click', (event) => openPopup(event, index));
+	    markers[index].element.querySelector('img').addEventListener('click', (event) => openPopup(event, index));
 	});
 }
 
@@ -244,6 +245,9 @@ function openPopup(event, index) {
 
 	const blurb = document.getElementById('blurb');
 	blurb.textContent = songs[index].blurb;
+
+	const iframe = document.getElementById('iframe');
+	iframe.setAttribute("src", songs[index].embed);
 
 	const link = document.getElementById('popup-link');
 	link.setAttribute("href", songs[index].link);
