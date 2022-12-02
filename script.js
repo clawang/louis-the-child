@@ -16,10 +16,6 @@ window.addEventListener( "earthjsload", function() {
 		});
 	}
 
-	// for(let i = 0; i < 3; i++) {
-	// 	document.getElementById(`breaking-news-${i}-title`).addEventListener('click', () => highlightBreakingNews(i));
-	// }
-
 	var zoom = calculateZoom();
 
 	myearth = new Earth(document.getElementById('element'), {
@@ -42,34 +38,9 @@ window.addEventListener( "earthjsload", function() {
 	});
 
 	myearth.addEventListener( "ready", function() {
-
 		this.startAutoRotate();
-
-		var stars = [];
-		
-		// var star_count = 1000;
-		
-		// for ( var i=0; i < star_count; i++ ) {
-		
-		// 	stars.push({
-		// 		location : { lat: getRandomInt(-60,60), lng: getRandomInt(-180,180) },
-		// 		offset: getRandomInt(40,60),
-		// 		scale: 2,
-		// 		opacity: getRandomInt(20,80)/100,
-		// 		color: 'rgb('+ getRandomInt(180,255) +','+ getRandomInt(180,255) +','+ getRandomInt(180,255) +')',
-		// 	});
-		
-		// }
-		
-		// var mypoints = myearth.addPoints({
-		// 	points: stars,
-		// 	scale: 0.5 + window.innerWidth / 2000
-		// });
-
 		addMarkers();
-		//addTimes();
 	});
-
 
 
 	var selectedCountry;
@@ -143,17 +114,6 @@ function addTimes() {
 			zoomScale: 0
 		});
 	});
-}
-
-
-function highlightBreakingNews(event, newsId) {
-	document.getElementById( 'breaking-news-'+ newsId ).classList.add( 'news-highlight' );
-	// setTimeout( function(){
-	// 	document.getElementById( 'breaking-news-'+ newsId ).classList.remove( 'news-highlight' );
-	// }, 500 );
-
-	myearth.goTo( news[ newsId ].location, { duration: 250, relativeDuration: 70 } );
-	event.stopPropagation();
 }
 
 function removePulses() {

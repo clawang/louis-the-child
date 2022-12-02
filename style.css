@@ -120,8 +120,9 @@ button a:after {
 
 #track-list {
 	position: absolute;
-	bottom: 50px;
-	right: 40px;
+	top: 50%;
+	transform: translate(0, -50%);
+	right: 90px;
 	z-index: 1001;
 }
 
@@ -136,36 +137,30 @@ button a:after {
 
 #logo {
 	position: absolute;
-	top: 50px;
-	left: 50px;
+	top: 50%;
+	left: 80px;
 	width: 200px;
 	text-align: center;
 	z-index: 1001;
+	transform: translate(0, -50%);
 }
 
-#full-film button {
+#logo button {
 	border-color: white;
 	color: white;
 	margin-top: 10px;
 }
 
-#full-film button:hover {
+#logo button:hover {
 	background: white;
 }
 
-#full-film button:hover a {
+#logo button:hover a {
 	color: black;
 }
 
-#full-film button a {
+#logo button a {
 	color: white;
-}
-
-#full-film {
-	position: absolute;
-	top: 50px;
-	right: 40px;
-	width: 180px;
 }
 
 #crown {
@@ -407,29 +402,19 @@ button a:after {
 	}
 }
 
-@media only screen and (max-width: 900px) {
-	.tracks {
-		display: none;
-	}
-	#full-film {
-		left: 50%;
-		transform: translate(-50%, 0);
-		display: flex;
-		align-items: flex-end;
-		justify-content: center;
-		bottom: 10%;
-		height: auto;
-	}
-	#logo {
-		left: 50%;
-		transform: translate(-50%,0);
-	}
+@media only screen and (max-width: 1000px) {
 	.popup {
 		width: 100%;
 	}
+	#track-list {
+		right: 50px;
+	}
+	#logo {
+		left: 50px;
+	}
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
 	.popup-details {
 		flex-wrap: wrap;
 	}
@@ -438,6 +423,19 @@ button a:after {
 	}
 	.popup-details-right {
 		margin-top: 20px;
+	}
+	#logo {
+		width: 300px;
+		top: 20px;
+		left: 50%;
+		transform: translate(-50%,0);
+	}
+	.logo-images {
+		width: 200px;
+		margin: 0 auto;
+	}
+	.tracks {
+		display: none;
 	}
 }
 
