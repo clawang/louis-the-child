@@ -16,6 +16,9 @@ body {
 	color: white;
 	position: relative;
 	height: 100vh;
+	background: url('./images/bg-marble.jpg');
+	/*background: black;*/
+	background-size: cover;
 }
 
 h2 {
@@ -36,9 +39,9 @@ a {
 	color: black;
 	text-decoration: none;
 	display: inline-block;
-  	position: relative;
-  	z-index: 1;
-  	transition: .25s;
+	position: relative;
+	z-index: 1;
+	transition: .25s;
 }
 
 a:hover {
@@ -76,12 +79,19 @@ button:hover {
 	color: white;
 }
 
+button:hover a {
+	color: white;
+}
+
+button a:after {
+	content: none;
+}
+
 #container {
 	width: 100%;
 	height: 100%;
-	/*background: url('./images/bg-marble.jpg');*/
-	background: black;
-	background-size: cover;
+	max-width: 2000px;
+	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	padding: 50px;
@@ -102,7 +112,7 @@ button:hover {
 #track-list {
 	position: absolute;
 	bottom: 50px;
-	right: 50px;
+	right: 40px;
 	z-index: 1001;
 }
 
@@ -123,6 +133,24 @@ button:hover {
 	text-align: center;
 }
 
+#track-list button {
+	border-color: white;
+	color: white;
+	margin-top: 10px;
+}
+
+#track-list button:hover {
+	background: white;
+}
+
+#track-list button:hover a {
+	color: black;
+}
+
+#track-list button a {
+	color: white;
+}
+
 #crown {
 	width: 50px;
 }
@@ -130,16 +158,16 @@ button:hover {
 .popup {
 	position: absolute;
 	background: white;
-	width: 800px;
-	height: 500px;
-	max-width: 100%;
+	width: 100%;
+	height: 600px;
+	max-width: 1000px;
 	margin: auto;
 	top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   color: black;
   border: 3px solid black;
-  z-index: 999;
+  z-index: 1002;
   overflow: hidden;
 }
 
@@ -172,7 +200,7 @@ button:hover {
 	position: absolute;
 	right: 20px;
 	top: 4px;
-	cursor:  pointer;
+	cursor: pointer;
 }
 
 .popup-bar-line:last-of-type {
@@ -183,7 +211,7 @@ button:hover {
 	padding: 20px 20px 50px 20px;
 	text-align: center;
 	overflow-y: scroll;
-	height: 468px;
+	height: 568px;
 	box-sizing: border-box;
 }
 
@@ -202,7 +230,8 @@ button:hover {
 }
 
 .popup-blurb-container {
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	margin: 0 auto;
 }
 
@@ -215,7 +244,8 @@ button:hover {
 .popup-details {
 	text-align: left;
 	font-family: 'Chicago', sans-serif;
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	margin: 0 auto;
 	padding-top: 20px;
 	display: flex;
@@ -326,3 +356,49 @@ button:hover {
 	100% {transform: translate(-50%, -50%) scale(0)}
 }
 
+@media only screen and (max-width: 1200px) {
+	.popup {
+		width: 800px;
+	}
+	.crown-overlay img {
+		width: 50px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.tracks {
+		display: none;
+	}
+	#track-list {
+		left: 50%;
+		transform: translate(-50%, 0);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#logo {
+		left: 50%;
+		transform: translate(-50%,0);
+	}
+	.popup {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.popup-details {
+		flex-wrap: wrap;
+	}
+	.popup-details > div {
+		width: 100%;
+	}
+	.popup-details-right {
+		margin-top: 20px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.crown-overlay img {
+		width: 25px;
+	}
+}

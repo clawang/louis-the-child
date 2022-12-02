@@ -9,26 +9,27 @@ window.addEventListener( "earthjsload", function() {
 	const close = document.getElementById('close-button');
 	close.addEventListener('click', closePopup);
 
-	const trackList = Array.from(document.getElementById('track-list').children);
-	trackList.forEach((track, index) => {
-		track.addEventListener('click', () => goToSong(index));
-	});
+	if(document.getElementById('track-list')) {
+		const trackList = Array.from(document.getElementById('track-list').children);
+		trackList.forEach((track, index) => {
+			track.addEventListener('click', () => goToSong(index));
+		});
+	}
 
 	// for(let i = 0; i < 3; i++) {
 	// 	document.getElementById(`breaking-news-${i}-title`).addEventListener('click', () => highlightBreakingNews(i));
 	// }
 
+	var zoom = window.innerWidth < 800 ? 1 : 0.7;
+
 	myearth = new Earth(document.getElementById('element'), {
 		// location : {lat: 18, lng: -50},
 		location: {lat: 14.4267077, lng:143.93},
-		zoom: 0.7,
+		zoom: zoom,
 		light: 'none',
 
 		transparent: true,
 		mapImage: './images/marble-map-texture.png',
-		// mapSeaColor : 'RGBA(255,255,255,0.76)',
-		// mapLandColor : '#000000',
-		// mapBorderColor : '#5D5D5D',
 		mapBorderWidth : 0.25,
 		mapHitTest : true,
 
@@ -38,32 +39,30 @@ window.addEventListener( "earthjsload", function() {
 		autoRotateEasing: 'out-quad'
 	});
 
-	console.log(myearth.camera);
-
 	myearth.addEventListener( "ready", function() {
 
 		this.startAutoRotate();
 
 		var stars = [];
 		
-		var star_count = 1000;
+		// var star_count = 1000;
 		
-		for ( var i=0; i < star_count; i++ ) {
+		// for ( var i=0; i < star_count; i++ ) {
 		
-			stars.push({
-				location : { lat: getRandomInt(-60,60), lng: getRandomInt(-180,180) },
-				offset: getRandomInt(40,60),
-				scale: 2,
-				opacity: getRandomInt(20,80)/100,
-				color: 'rgb('+ getRandomInt(180,255) +','+ getRandomInt(180,255) +','+ getRandomInt(180,255) +')',
-			});
+		// 	stars.push({
+		// 		location : { lat: getRandomInt(-60,60), lng: getRandomInt(-180,180) },
+		// 		offset: getRandomInt(40,60),
+		// 		scale: 2,
+		// 		opacity: getRandomInt(20,80)/100,
+		// 		color: 'rgb('+ getRandomInt(180,255) +','+ getRandomInt(180,255) +','+ getRandomInt(180,255) +')',
+		// 	});
 		
-		}
+		// }
 		
-		var mypoints = myearth.addPoints({
-			points: stars,
-			scale: 0.5 + window.innerWidth / 2000
-		});
+		// var mypoints = myearth.addPoints({
+		// 	points: stars,
+		// 	scale: 0.5 + window.innerWidth / 2000
+		// });
 
 		addMarkers();
 		//addTimes();
@@ -80,6 +79,12 @@ window.addEventListener( "earthjsload", function() {
 			}
 	  }
 	});
+});
+
+window.addEventListener("resize", function() {
+	var zoom = window.innerWidth < 800 ? 1 : 0.7;
+	myearth.zoom = zoom;
+	myearth.redrawMap();
 });
 
 function addMarkers() {
@@ -128,15 +133,20 @@ function highlightBreakingNews(event, newsId) {
 	event.stopPropagation();
 }
 
+function removePulses() {
+	markers.forEach(marker => {
+		marker.element.classList.remove('pulsing');
+	});
+}
+
 function goToSong(id) {
+	removePulses();
 	const animation = myearth.goTo({lat: songs[id].lat, lng: songs[id].lng}, { duration: 250, relativeDuration: 70 } );
 	markers[id].element.classList.add('pulsing');
 }
 
 function openPopup(event, index) {
-	markers.forEach(marker => {
-		marker.element.classList.remove('pulsing');
-	})
+	removePulses();
 	document.querySelector(".popup-contents").scrollTop = 0;
 
 	//opens popup
@@ -214,6 +224,9 @@ function openPopup(event, index) {
 
 	const blurb = document.getElementById('blurb');
 	blurb.textContent = songs[index].blurb;
+
+	const link = document.getElementById('popup-link');
+	link.setAttribute("href", songs[index].link);
 }
 
 function closePopup(event) {
