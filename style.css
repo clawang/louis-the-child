@@ -459,4 +459,12 @@ button a:after {
 	#popup-title {
 		font-size: 2em;
 	}
+
+	.popup {
+		height: calc(100% - 200px);
+	}
+
+	.popup-contents {
+		height: calc(100% - 32px);
+	}
 }
