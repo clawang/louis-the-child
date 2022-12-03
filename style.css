@@ -452,4 +452,11 @@ button a:after {
 	#container {
 		padding: 0;
 	}
+	.popup-title {
+		word-wrap: break-word;
+	}
+
+	#popup-title {
+		font-size: 2em;
+	}
 }
