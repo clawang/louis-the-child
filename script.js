@@ -124,11 +124,17 @@ function removePulses() {
 
 function goToSong(id) {
 	removePulses();
-	const animation = myearth.goTo({lat: songs[id].lat, lng: songs[id].lng}, { duration: 250, relativeDuration: 70 } );
+	const animation = myearth.goTo({lat: songs[id].lat, lng: songs[id].lng}, { 
+		duration: 250,
+		relativeDuration: 70,
+		complete: () => openPopup({}, id)
+	});
 	markers[id].element.classList.add('pulsing');
 }
 
 function openPopup(event, index) {
+	const iframeCover = document.getElementById('iframe-cover');
+	iframeCover.classList.remove('hide');
 	removePulses();
 	document.querySelector(".popup-contents").scrollTop = 0;
 
@@ -147,6 +153,9 @@ function openPopup(event, index) {
 	video.width = popupWidth;
 	video.height = popupWidth * 315/560;
 	video.setAttribute("src", songs[index].video);
+	video.onload = function(){
+        iframeCover.classList.add('hide');
+    };
 
 	const credits = document.getElementById('credits');
 	credits.innerHTML = "";
