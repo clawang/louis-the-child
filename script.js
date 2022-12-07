@@ -165,7 +165,8 @@ function openPopup(event, index) {
 	        var link = document.createTextNode(credit.name);
 	        a.appendChild(link); 
 	        a.title = credit.name; 
-	        a.href = credit.link; 
+	        a.href = credit.link;
+	        a.target = "_blank";
 			const field = document.createElement("p");
 			const text = document.createTextNode(credit.title + ": ");
 			const value = document.createElement("p");
@@ -206,7 +207,8 @@ function openPopup(event, index) {
 	        var link = document.createTextNode(dancer.name);
 	        a.appendChild(link); 
 	        a.title = dancer.name; 
-	        a.href = dancer.link; 
+	        a.href = dancer.link;
+	        a.target = "_blank";
 	          
 			const para = document.createElement("p");
 			para.appendChild(a);
