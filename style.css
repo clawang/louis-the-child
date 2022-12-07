@@ -475,7 +475,7 @@ button a:after {
 		width: 200px;
 		margin: 0 auto;
 	}
-	.tracks {
+	#track-list {
 		display: none;
 	}
 }
